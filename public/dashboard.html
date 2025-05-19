@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Finance Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Welcome to Your Dashboard</h1>
+
+  <div class="summary">
+    <div class="card">
+      <h2>Balance</h2>
+      <p id="balance">$0</p>
+    </div>
+    <div class="card">
+      <h2>Income</h2>
+      <p id="income">$0</p>
+    </div>
+    <div class="card">
+      <h2>Expenses</h2>
+      <p id="expenses">$0</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="transactions.html">Transactions</a> |
+    <a href="budgets.html">Budgets</a> |
+    <a href="analytics.html">Analytics</a> |
+    <a href="#" id="logout">Logout</a>
+  </nav>
+
+  <script src="js/dashboard.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transactions - Finance Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Your Transactions</h1>
+
+  <form id="transactionForm">
+    <select id="type" required>
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+
+    <input type="text" id="category" placeholder="Category" required />
+    <input type="number" id="amount" placeholder="Amount" required />
+    <input type="text" id="description" placeholder="Description" />
+    <input type="date" id="date" required />
+    <button type="submit">Add Transaction</button>
+  </form>
+
+  <h2>All Transactions</h2>
+  <ul id="transactionsList"></ul>
+
+  <p><a href="dashboard.html">← Back to Dashboard</a></p>
+
+  <script src="js/transactions.js" type="module"></script>
+</body>
+</html>

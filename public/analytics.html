@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analytics - Finance Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Spending Analytics</h1>
+
+  <section style="max-width: 800px; margin: 0 auto;">
+    <h2>Summary</h2>
+    <p id="summary"></p>
+
+    <h2>Spending by Category</h2>
+    <canvas id="pieChart" height="200"></canvas>
+
+    <h2>Budgets vs Spending</h2>
+    <canvas id="barChart" height="200"></canvas>
+
+    <p><a href="dashboard.html">← Back to Dashboard</a></p>
+  </section>
+
+  <script src="js/analytics.js" type="module"></script>
+</body>
+</html>
