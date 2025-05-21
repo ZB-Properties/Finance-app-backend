@@ -8,8 +8,9 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
+
 pool.on('connect', () => {
-  console.log('Connected to PostgreSQL');
+  console.log("Connecting to:", process.env.DATABASE_URL);
 });
 
 module.exports = pool;

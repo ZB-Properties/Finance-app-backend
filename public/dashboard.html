@@ -2,34 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard - Finance Tracker</title>
+  <title>Home - Finance Tracker</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <h1>Welcome to Your Dashboard</h1>
+  <section class="home">
+    
+    <h1>Welcome to Your Finance Tracker</h1>
+    <p class="greeting" id="userGreeting">Loading...</p>
 
-  <div class="summary">
-    <div class="card">
-      <h2>Balance</h2>
-      <p id="balance">$0</p>
-    </div>
-    <div class="card">
-      <h2>Income</h2>
-      <p id="income">$0</p>
-    </div>
-    <div class="card">
-      <h2>Expenses</h2>
-      <p id="expenses">$0</p>
-    </div>
-  </div>
+    <div class="grid">
+      <a href="transactions.html" class="card">
+        💸 Transactions
+        <span>View and track your income and expenses</span>
+      </a>
 
-  <nav>
-    <a href="transactions.html">Transactions</a> |
-    <a href="budgets.html">Budgets</a> |
-    <a href="analytics.html">Analytics</a> |
-    <a href="#" id="logout">Logout</a>
-  </nav>
+      <a href="budgets.html" class="card">
+        📊 Budgets
+        <span>Set monthly spending limits</span>
+      </a>
 
-  <script src="js/dashboard.js" type="module"></script>
+      <a href="analytics.html" class="card">
+        📈 Analytics
+        <span>Visualize your financial data</span>
+      </a>
+
+      <a href="index.html" class="card logout">
+        🔐 Logout
+        <span>Log out of your account</span>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    const name = localStorage.getItem("username");
+    document.getElementById("userGreeting").textContent = name ? `Hello, ${name}!` : "Hello!";
+  </script>
 </body>
 </html>
