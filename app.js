@@ -8,9 +8,19 @@ const analyticsRoutes = require('./routes/analyticsRoutes');
 const path = require('path');
 
 
+
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:2600', 
+  'https://financetracks-app.netlify.app' 
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes); 

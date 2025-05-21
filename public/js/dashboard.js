@@ -1,3 +1,4 @@
+import { API_BASE_URL } from './config.js';
 import { getToken, authHeaders } from './utils.js';
 
 const balanceEl = document.getElementById('balance');
@@ -7,7 +8,7 @@ const logoutBtn = document.getElementById('logout');
 
 const fetchSummary = async () => {
   try {
-    const res = await fetch('http://localhost:2600/api/analytics/summary', {
+    const res = await fetch(`${API_BASE_URL}/analytics/summary`, {
       headers: authHeaders()
     });
 

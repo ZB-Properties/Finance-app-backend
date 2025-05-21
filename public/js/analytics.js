@@ -1,6 +1,7 @@
+import { API_BASE_URL } from './config.js';
 import { authHeaders } from './utils.js';
 
-const API = 'http://localhost:2600/api/analytics';
+const API = `${API_BASE_URL}/analytics`;
 
 const summary = document.getElementById('summary');
 const pieCanvas = document.getElementById('pieChart');

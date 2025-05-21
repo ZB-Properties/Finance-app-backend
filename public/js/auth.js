@@ -1,4 +1,6 @@
-const API_BASE = 'http://localhost:2600/api/auth';
+import { API_BASE_URL } from "./config";
+
+const API_BASE = `${API_BASE_URL}/auth`;
 
 const signupForm = document.getElementById('signupForm');
 const loginForm = document.getElementById('loginForm');

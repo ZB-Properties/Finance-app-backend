@@ -1,8 +1,9 @@
+import { API_BASE_URL } from './config.js';
 import { getToken, authHeaders } from './utils.js';
 
 const form = document.getElementById('transactionForm');
 const list = document.getElementById('transactionsList');
-const API_URL = 'http://localhost:2600/api/transactions';
+const API_URL = `${API_BASE_URL}/transactions`;
 
 const fetchTransactions = async () => {
   try {

@@ -1,9 +1,9 @@
+import { API_BASE_URL } from './config.js';
 import { authHeaders } from './utils.js';
 
 const form = document.getElementById('budgetForm');
 const list = document.getElementById('budgetsList');
-const API_URL = 'http://localhost:2600/api/budgets';
-
+const API_URL = `${API_BASE_URL}/budgets`;
 
 const fetchBudgets = async () => {
   try {
