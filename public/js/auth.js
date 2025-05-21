@@ -26,7 +26,7 @@ if (signupForm) {
     } else {
       alert(data.error || 'Signup failed');
     }
-  });
+});
 }
 
 if (loginForm) {
