@@ -13,7 +13,7 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:2600', 
-  'https://financetracks-app.netlify.app' 
+  'https://financetracks-app.netlify.app/' 
 ];
 
 app.use(cors({
