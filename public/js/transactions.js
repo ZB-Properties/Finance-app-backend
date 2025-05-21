@@ -25,7 +25,7 @@ const fetchTransactions = async () => {
       list.appendChild(li);
     });
   } catch (err) {
-    alert('Error fetching transactions');
+    alert('');
   }
 };
 

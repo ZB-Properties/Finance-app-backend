@@ -54,7 +54,7 @@ form.addEventListener('submit', async (e) => {
       alert(err.error || 'Failed to create budget');
     }
   } catch (err) {
-    alert('Error creating budget');
+    alert('');
   }
 });
 
