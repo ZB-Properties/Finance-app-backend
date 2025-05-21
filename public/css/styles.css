@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -458,3 +459,465 @@ a {
 a:hover {
   text-decoration: none;
 }
+=======
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f6fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+
+.home {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+.home h1 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-top: 8px;
+  color: #000;
+}
+.home .greeting {
+  font-size: 20px;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 20px;
+}
+.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.card {
+  display: block;
+  background: rgb(255, 179, 179);
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #222;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card span {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(64, 64, 64);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.logout {
+  background: #ffecec;
+  color: #e52c4b;
+}
+
+
+
+.form-container {
+  background-color: rgb(242, 242, 242);
+  height: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: 80%;
+  max-width: 400px;
+}
+.form-container h2 {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 80%;
+  padding: 0.75rem 1rem;
+  margin: 12px 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.register-button {
+  width: 50%;
+  padding: 0.75rem;
+  margin-left: 100px;
+  background-color: #e52c4b;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.register-button:hover {
+  background-color: rgb(255, 179, 179);
+  color: black;
+}
+.login-container {
+  background-color: rgb(242, 242, 242);
+  height: 300px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: 80%;
+  max-width: 400px;
+}
+.login-container h2 {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.login-container p {
+   font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 10px;
+}
+.login-container a {
+  color: black;
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.login-button {
+  width: 50%;
+  padding: 0.75rem;
+  margin-left: 100px;
+  background-color: #e52c4b;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.form-container p {
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 15px;
+}
+.form-container a {
+  color: black;
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 10px;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(255, 102, 102);
+}
+
+
+.trans-container {
+  background-color: white;
+  height: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 70%;
+  max-width: 500px; 
+}
+.trans-container h1 {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+.transaction-form .input {
+  width: 62%;
+  height: 40px;
+	border: 1.5px solid #333;
+	padding: 5px;
+	font-size: 15px;
+  margin-left: 60px;
+	margin-top: 12px;
+	border-radius: 4px;
+	background-color: white;
+}
+.transaction-form input {
+  width: 60%;
+  height: 30px;
+	border: 1.5px solid #333;
+	padding: 5px;
+	font-size: 15px;
+  margin-left: 60px;
+	margin-top: 12px;
+	border-radius: 4px;
+	background-color: white;
+}
+.transaction-button {
+  width: 40%;
+  padding: 0.75rem;
+  margin-top: 22px;
+  margin-left: 140px;
+  background-color: #e52c4b;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.transaction-button:hover {
+  background-color: rgb(255, 179, 179);
+  color: black;
+}
+
+.transactions {
+  background-color: white;
+  height: 50%;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  max-width: 300px; 
+  margin-left: 50px;
+}
+.transactions h2 {
+  font-size: 27px;
+  font-style: italic;
+  font-weight: 600;
+}
+.transactions a {
+  color: #e52c4b;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.transactions a:hover {
+  color: rgb(255, 102, 102);
+}
+ul#transactionsList {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 2rem auto;
+}
+ul#transactionsList li {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-left: 5px solid rgb(255, 102, 102, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  position: relative;
+}
+ul#transactionsList li strong {
+  color: #e52c4b;
+}
+ul#transactionsList li button {
+margin-top: 0.5rem;
+  background-color: #f44336;
+  color: white;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+ul#transactionsList li button:hover {
+  background-color: #d32f2f;
+}
+
+
+.budgets {
+  background-color: white;
+  height: 40%;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 40%; 
+  max-width: 250px; 
+  margin-right: 120px;
+}
+.budgets h2 {
+  font-size: 27px;
+  font-style: italic;
+  font-weight: 600;
+}
+.budgets a {
+  color: #e52c4b;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.budgets a:hover {
+  color: rgb(255, 102, 102);
+}
+.budgets-container {
+  background-color: white;
+  height: 220px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  max-width: 300px;
+}
+.budgets-container h1 {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+.budget-form input {
+  width: 68%;
+  height: 25px;
+	border: 1.5px solid #333;
+	padding: 5px;
+	font-size: 15px;
+  margin-left: 40px;
+	margin-top: 12px;
+	border-radius: 4px;
+	background-color: white;
+}
+.budget-button {
+  width: 40%;
+  padding: 0.75rem;
+  margin-top: 22px;
+  margin-left: 90px;
+  background-color: #e52c4b;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.budget-button:hover {
+  background-color: rgb(255, 179, 179);
+  color: black;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+progress {
+  width: 100%;
+  height: 14px;
+  margin: 0.5rem 0;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #2c7be5;
+  border-radius: 4px;
+}
+
+ul#budgetsList li {
+  border-left: 5px solid #2c7be5;
+}
+
+
+.spending {
+   display: block;
+   font-size: 30px;
+   margin-left: 120px;
+   margin-bottom: 300px;
+}
+.analytics-container {
+  background-color: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  height: 650px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+.analytics-container h1 {
+  font-size: 27px;
+  font-weight: 600; 
+  margin-top: 8px;
+  color: #000;
+}
+.analytics-container h2 {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 500; 
+  margin-top: 5px;
+}
+.analytics-container a {
+  color: #e52c4b;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.analytics-container a:hover {
+  color: rgb(255, 102, 102);
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#summary {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+canvas {
+  display: block;
+  margin: 1rem auto 2rem;
+  max-width: 100%;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  color: #2c7be5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: none;
+}
+>>>>>>> d1edbf81326e0e5680aeec6716cd0ade8a4d1bb2
