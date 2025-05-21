@@ -11,10 +11,14 @@ const path = require('path');
 const app = express();
 
 
+
 app.use(cors({
   origin: 'https://financetracks-app.netlify.app',
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 
 
 app.use(express.json());
