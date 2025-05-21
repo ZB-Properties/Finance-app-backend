@@ -4,6 +4,7 @@ const form = document.getElementById('budgetForm');
 const list = document.getElementById('budgetsList');
 const API_URL = 'http://localhost:2600/api/budgets';
 
+
 const fetchBudgets = async () => {
   try {
     const res = await fetch(API_URL, {
@@ -12,6 +13,7 @@ const fetchBudgets = async () => {
 
     const budgets = await res.json();
     list.innerHTML = '';
+
 
     budgets.forEach(budget => {
       const spent = budget.spent || 0;
@@ -35,6 +37,7 @@ form.addEventListener('submit', async (e) => {
 
   const category = document.getElementById('category').value.trim();
   const amount = parseFloat(document.getElementById('amount').value);
+  
 
   try {
     const res = await fetch(API_URL, {

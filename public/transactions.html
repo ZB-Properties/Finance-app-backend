@@ -6,10 +6,13 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>Your Transactions</h1>
 
-  <form id="transactionForm">
-    <select id="type" required>
+  <section class="trans-container">
+ 
+    <h1>Your Transactions</h1>
+
+  <form class="transaction-form" id="transactionForm">
+    <select class="input" id="type" required>
       <option value="income">Income</option>
       <option value="expense">Expense</option>
     </select>
@@ -18,13 +21,20 @@
     <input type="number" id="amount" placeholder="Amount" required />
     <input type="text" id="description" placeholder="Description" />
     <input type="date" id="date" required />
-    <button type="submit">Add Transaction</button>
+    <button class="transaction-button" type="submit">Add Transaction</button>
   </form>
 
-  <h2>All Transactions</h2>
+  </section>
+  
+  <section class="transactions">
+    
+    <h2>All Transactions</h2>
   <ul id="transactionsList"></ul>
 
   <p><a href="dashboard.html">← Back to Dashboard</a></p>
+
+  </section>
+
 
   <script src="js/transactions.js" type="module"></script>
 </body>
