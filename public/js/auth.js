@@ -1,7 +1,6 @@
 import { API_BASE_URL } from "./config.js";
 
 
-const API_BASE = `${API_BASE_URL}/auth`;
 
 const signupForm = document.getElementById('signupForm');
 const loginForm = document.getElementById('loginForm');
@@ -13,7 +12,7 @@ if (signupForm) {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    const res = await fetch(`${API_BASE}/signup`, {
+    const res = await fetch(`${API_BASE_URL}/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password })
@@ -35,7 +34,7 @@ if (loginForm) {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    const res = await fetch(`${API_BASE}/login`, {
+    const res = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })

@@ -2,7 +2,7 @@
 import { API_BASE_URL } from './config.js';
 import { authHeaders } from './utils.js';
 
-const API = `${API_BASE_URL}/analytics`;
+
 
 const summary = document.getElementById('summary');
 const pieCanvas = document.getElementById('pieChart');
@@ -10,7 +10,7 @@ const barCanvas = document.getElementById('barChart');
 
 const fetchAnalytics = async () => {
   try {
-    const res = await fetch(API, {
+    const res = await fetch(`${API_BASE_URL}/analytics`, {
       headers: authHeaders()
     });
     const data = await res.json();

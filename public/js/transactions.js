@@ -4,11 +4,11 @@ import { getToken, authHeaders } from './utils.js';
 
 const form = document.getElementById('transactionForm');
 const list = document.getElementById('transactionsList');
-const API_URL = `${API_BASE_URL}/transactions`;
+
 
 const fetchTransactions = async () => {
   try {
-    const res = await fetch(API_URL, {
+    const res = await fetch(`${API_BASE_URL}/transactions`, {
       headers: authHeaders()
     });
 
@@ -35,7 +35,7 @@ window.deleteTransaction = async (id) => {
   if (!confirm('Delete this transaction?')) return;
 
   try {
-    const res = await fetch(`${API_URL}/${id}`, {
+    const res = await fetch(`${API_BASE_URL}/transactions/${id}`, {
       method: 'DELETE',
       headers: authHeaders()
     });
@@ -59,7 +59,7 @@ form.addEventListener('submit', async (e) => {
   const date = document.getElementById('date').value;
 
   try {
-    const res = await fetch(API_URL, {
+    const res = await fetch(`${API_BASE_URL}/transactions`, {
       method: 'POST',
       headers: authHeaders(),
       body: JSON.stringify({ type, category, amount, description, date })

@@ -4,11 +4,11 @@ import { authHeaders } from './utils.js';
 
 const form = document.getElementById('budgetForm');
 const list = document.getElementById('budgetsList');
-const API_URL = `${API_BASE_URL}/budgets`;
+
 
 const fetchBudgets = async () => {
   try {
-    const res = await fetch(API_URL, {
+    const res = await fetch(`${API_BASE_URL}/budgets`, {
       headers: authHeaders()
     });
 
@@ -41,7 +41,7 @@ form.addEventListener('submit', async (e) => {
   
 
   try {
-    const res = await fetch(API_URL, {
+    const res = await fetch(`${API_BASE_URL}/budgets`, {
       method: 'POST',
       headers: authHeaders(),
       body: JSON.stringify({ category, amount })
@@ -63,7 +63,7 @@ window.deleteBudget = async (id) => {
   if (!confirm('Delete this budget?')) return;
 
   try {
-    const res = await fetch(`${API_URL}/${id}`, {
+    const res = await fetch(`${API_BASE_URL}/budgets/${id}`, {
       method: 'DELETE',
       headers: authHeaders()
     });
