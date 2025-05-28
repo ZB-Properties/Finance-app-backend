@@ -1,7 +1,6 @@
 import { API_BASE_URL } from "./config.js";
 
 
-
 const signupForm = document.getElementById('signupForm');
 const loginForm = document.getElementById('loginForm');
 
