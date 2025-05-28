@@ -1,6 +1,4 @@
-
 const pool = require('../models/db');
-
 
 const getSummary = async (req, res) => {
   const userId = req.user.userId;
@@ -28,7 +26,6 @@ const getSummary = async (req, res) => {
   }
 };
 
-
 const getByCategory = async (req, res) => {
   const userId = req.user.userId;
 
@@ -45,7 +42,6 @@ const getByCategory = async (req, res) => {
     res.status(500).json({ message: 'Failed to load category breakdown', error: err.message });
   }
 };
-
 
 const getMonthlyTrend = async (req, res) => {
   const userId = req.user.userId;
@@ -66,7 +62,42 @@ const getMonthlyTrend = async (req, res) => {
 
     res.json(result.rows);
   } catch (err) {
-    res.status(500).json({ message: 'Failed to load monthly trends', error: err.message });
+    res.status(500).json({ err });
+  }
+};
+
+const generateMonthlyAnalytics = async (req, res) => {
+  const userId = req.user.userId;
+
+  try {
+    const result = await pool.query(
+      `SELECT
+         TO_CHAR(date, 'YYYY-MM') AS month,
+         SUM(CASE WHEN type = 'income' THEN amount ELSE 0 END) AS total_income,
+         SUM(CASE WHEN type = 'expense' THEN amount ELSE 0 END) AS total_expense,
+         SUM(CASE WHEN type = 'income' THEN amount ELSE 0 END) - 
+         SUM(CASE WHEN type = 'expense' THEN amount ELSE 0 END) AS balance
+       FROM transactions
+       WHERE user_id = $1
+       GROUP BY month
+       ORDER BY month DESC
+       LIMIT 1`,
+      [userId]
+    );
+
+    const { month, total_income, total_expense, balance } = result.rows[0];
+
+    await pool.query(
+      `INSERT INTO analytics (user_id, month, total_income, total_expense, balance)
+       VALUES ($1, $2, $3, $4, $5)
+       ON CONFLICT (user_id, month)
+       DO UPDATE SET total_income = $3, total_expense = $4, balance = $5`,
+      [userId, month, total_income, total_expense, balance]
+    );
+
+    res.json({ message: 'Analytics updated', data: result.rows[0] });
+  } catch (err) {
+    res.status(500).json({ message: 'Analytics update failed', error: err.message });
   }
 };
 
@@ -74,4 +105,5 @@ module.exports = {
   getSummary,
   getByCategory,
   getMonthlyTrend,
+  generateMonthlyAnalytics,
 };

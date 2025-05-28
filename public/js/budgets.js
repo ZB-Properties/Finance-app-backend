@@ -29,7 +29,7 @@ const fetchBudgets = async () => {
       list.appendChild(li);
     });
   } catch (err) {
-    alert('Error fetching budgets');
+    alert('');
   }
 };
 
