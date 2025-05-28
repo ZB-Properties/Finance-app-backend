@@ -12,7 +12,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: 'financetracks-app.netlify.app',
+  origin: 'https://financetracks-app.netlify.app',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -21,10 +21,12 @@ app.use(cors({
 
 app.use(express.json());
 
+
 app.use('/api/auth', authRoutes); 
 app.use('/api/transactions', transactionRoutes);
 app.use('/api/budgets', budgetRoutes);
 app.use('/api/analytics', analyticsRoutes);
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
