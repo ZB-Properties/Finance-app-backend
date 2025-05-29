@@ -9,7 +9,9 @@ const barCanvas = document.getElementById('barChart');
 async function fetchAnalytics () {
   try {
     const res = await fetch(`${API_BASE_URL}/analytics/summary`, {
-      headers: authHeaders()
+      method: 'GET',
+      headers: authHeaders(),
+      credentials: 'include'
     });
     const data = await res.json();
 
