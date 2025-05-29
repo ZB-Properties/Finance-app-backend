@@ -1,28 +1,33 @@
-
 import { API_BASE_URL } from './config.js';
 import { authHeaders } from './utils.js';
-
 
 
 const summary = document.getElementById('summary');
 const pieCanvas = document.getElementById('pieChart');
 const barCanvas = document.getElementById('barChart');
 
-const fetchAnalytics = async () => {
+async function fetchAnalytics () {
   try {
-    const res = await fetch(`${API_BASE_URL}/analytics`, {
+    const res = await fetch(`${API_BASE_URL}/analytics/summary`, {
       headers: authHeaders()
     });
     const data = await res.json();
 
-    summary.textContent = `Total Income: $${data.totalIncome} | Total Expense: $${data.totalExpense}`;
+    summary.textContent = `Total Income: $${data?.totalIncome ?? 0} | Total Expense: $${data?.totalExpense ?? 0}`;
 
-    renderPieChart(data.categoryTotals);
-    renderBarChart(data.budgets);
-  } catch (err) {
-    alert('Error loading analytics');
+if (data?.categoryTotals && Object.keys(data.categoryTotals).length > 0) {
+  renderPieChart(data.categoryTotals);
+}
+
+if (data?.budgets && data.budgets.length > 0) {
+  renderBarChart(data.budgets);
+} 
+
+}catch (err) {
+    console.error(err);
   }
-};
+
+}
 
 const renderPieChart = (categoryTotals) => {
   const labels = Object.keys(categoryTotals);

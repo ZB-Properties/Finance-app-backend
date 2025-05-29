@@ -14,7 +14,8 @@ const addBudget = async (req, res) => {
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    res.status(500).json({ message: 'Failed to add budget', error: err.message });
+    console.error(err);
+    res.status(500).json({ message: 'Failed to add budget' });
   }
 };
 
@@ -29,7 +30,8 @@ const getBudgets = async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    res.status(500).json({ message: 'Failed to fetch budgets', error: err.message });
+    console.error(err);
+    res.status(500).json({ message: 'Failed to fetch budgets' });
   }
 };
 
@@ -53,7 +55,8 @@ const updateBudget = async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (err) {
-    res.status(500).json({ message: 'Failed to update budget', error: err.message });
+    console.error(err);
+    res.status(500).json({ message: 'Failed to update budget' });
   }
 };
 
@@ -74,7 +77,8 @@ const deleteBudget = async (req, res) => {
 
     res.json({ message: 'Budget deleted' });
   } catch (err) {
-    res.status(500).json({ message: 'Failed to delete budget', error: err.message });
+    console.error(err);
+    res.status(500).json({ message: 'Failed to delete budget' });
   }
 };
 

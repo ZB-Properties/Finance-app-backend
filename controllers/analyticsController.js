@@ -1,7 +1,10 @@
 const pool = require('../models/db');
 
+
 const getSummary = async (req, res) => {
-  const userId = req.user.userId;
+  const userId = req.user?.userId;
+
+  console.log('Fetching summary for user:', userId); 
 
   try {
     const incomeResult = await pool.query(
@@ -16,15 +19,48 @@ const getSummary = async (req, res) => {
       [userId]
     );
 
-    const income = parseFloat(incomeResult.rows[0].total_income);
-    const expenses = parseFloat(expenseResult.rows[0].total_expense);
-    const balance = income - expenses;
+    const categoryResult = await pool.query(
+      `SELECT "category", SUM(amount) AS total
+       FROM transactions
+       WHERE user_id = $1 AND type = 'expense'
+       GROUP BY "category" 
+       ORDER BY total DESC`,
+      [userId]
+    );
 
-    res.json({ income, expenses, balance });
+const budgetsResult = await pool.query(
+      `SELECT category, amount, (
+         SELECT COALESCE(SUM(t.amount), 0)
+         FROM transactions t
+         WHERE t.user_id = $1 AND t.category = b.category AND t.type = 'expense'
+       ) AS spent
+       FROM budgets b
+       WHERE user_id = $1`,
+      [userId]
+    );
+
+    const totalIncome = parseFloat(incomeResult.rows[0].total_income);
+    const totalExpense = parseFloat(expenseResult.rows[0].total_expense);
+
+    const categoryTotals = {};
+    categoryResult.rows.forEach(row => {
+      categoryTotals[row.category] = parseFloat(row.total);
+    });
+
+    const budgets = budgetsResult.rows;
+
+    res.json({
+      totalIncome,
+      totalExpense,
+      categoryTotals,
+      budgets
+    });
   } catch (err) {
-    res.status(500).json({ message: 'Failed to load summary', error: err.message });
+    console.error('Error in getSummary:', err);
+    res.status(500).json({ message: 'Failed to load summary' })
   }
 };
+
 
 const getByCategory = async (req, res) => {
   const userId = req.user.userId;
@@ -39,7 +75,8 @@ const getByCategory = async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    res.status(500).json({ message: 'Failed to load category breakdown', error: err.message });
+    console.error(err);
+    
   }
 };
 
@@ -62,7 +99,8 @@ const getMonthlyTrend = async (req, res) => {
 
     res.json(result.rows);
   } catch (err) {
-    res.status(500).json({ err });
+    console.error(err);
+    res.status(500).json({ message: 'Failed to load monthly trends' });
   }
 };
 
@@ -97,7 +135,8 @@ const generateMonthlyAnalytics = async (req, res) => {
 
     res.json({ message: 'Analytics updated', data: result.rows[0] });
   } catch (err) {
-    res.status(500).json({ message: 'Analytics update failed', error: err.message });
+    console.error(err);
+    res.status(500).json({ message: 'Analytics update failed' });
   }
 };
 
