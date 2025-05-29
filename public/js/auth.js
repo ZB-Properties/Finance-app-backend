@@ -20,7 +20,7 @@ if (signupForm) {
     const data = await res.json();
     if (res.ok) {
       localStorage.setItem('token', data.token);
-      console.log('Signup successful. Token:', data.token); // ✅ Log token
+      console.log('Signup successful. Token:', data.token); 
       window.location.href = 'dashboard.html';
     } else {
       alert(data.error || 'Signup failed');
