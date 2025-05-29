@@ -11,11 +11,10 @@ async function fetchAnalytics () {
     const res = await fetch(`${API_BASE_URL}/analytics/summary`, {
       method: 'GET',
       headers: authHeaders(),
-      credentials: 'include'
     });
     const data = await res.json();
 
-    summary.textContent = `Total Income: $${data?.totalIncome ?? 0} | Total Expense: $${data?.totalExpense ?? 0}`;
+    summary.textContent = `Total Income: $${data?.income ?? 0} | Total Expense: $${data?.expenses ?? 0}`;
 
 if (data?.categoryTotals && Object.keys(data.categoryTotals).length > 0) {
   renderPieChart(data.categoryTotals);
@@ -26,9 +25,8 @@ if (data?.budgets && data.budgets.length > 0) {
 } 
 
 }catch (err) {
-    console.error(err);
+    console.error('Error in fetchAnalytics():', err);
   }
-
 }
 
 const renderPieChart = (categoryTotals) => {

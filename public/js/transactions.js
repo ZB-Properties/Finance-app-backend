@@ -1,6 +1,6 @@
 
 import { API_BASE_URL } from './config.js';
-import { getToken, authHeaders } from './utils.js';
+import { authHeaders } from './utils.js';
 
 const form = document.getElementById('transactionForm');
 const list = document.getElementById('transactionsList');
